@@ -52,10 +52,10 @@ int main()
             iter = baslangic;
             while (iter != NULL)	
             {	
-                if (iter->harf == *(str + i))	//bu kisim ayni harften bir tane daha geldiginde frekansi artýrmak icin.
+                if (iter->harf == *(str + i))	//bu kisim ayni harften bir tane daha geldiginde frekansi artÄ±rmak icin.
                 {
                     iter->freq++;
-                    j = 1; //ife girdiðini anlamak için koydugumuz bir flag
+                    j = 1; //ife girdiÄŸini anlamak iÃ§in koydugumuz bir flag
                 }
                 iter = iter->next;
             }
@@ -70,14 +70,14 @@ int main()
                 yeni->next = NULL;
                 eski->next = yeni;
                 eski = yeni;
-                sumnode++;		//ilk noode'da 1 idi. yeni node olusturdugumuz icin 1 arttýrýyoruz.
+                sumnode++;		//ilk noode'da 1 idi. yeni node olusturdugumuz icin 1 arttÄ±rÄ±yoruz.
             }
         }
     }
-    int arr[sumnode][2];	//2 boyutlu bir array. ilk sütunu harf, ikinci sütunu frekans degeri
-    iter = baslangic;	//dugumu dolasmak icin iter adýnda bir dugum olusturduk
+    int arr[sumnode][2];	//2 boyutlu bir array. ilk sÃ¼tunu harf, ikinci sÃ¼tunu frekans degeri
+    iter = baslangic;	//dugumu dolasmak icin iter adÄ±nda bir dugum olusturduk
     i = 0;
-    while (iter != NULL)	//dugumu array e yazýyoruz
+    while (iter != NULL)	//dugumu array e yazÄ±yoruz
     {
         arr[i][0] = iter->harf;
         arr[i][1] = iter->freq;
@@ -105,7 +105,7 @@ int main()
 }
 
 
-void insertionSort(int arr[][2], int n)		//arrayimize insertionsort algoritmasý uyguladýk.
+void insertionSort(int arr[][2], int n)		//arrayimize insertionsort algoritmasÄ± uyguladÄ±k.
 {
     int i, deger, j;
     char harf;
@@ -115,7 +115,7 @@ void insertionSort(int arr[][2], int n)		//arrayimize insertionsort algoritmasý 
         harf = arr[i][0];
         j = i - 1;
 
-        while (j >= 0 && arr[j][1] > deger)		//arrayin frekansýnýn bulunduðu sütun ile karþýlaþtýrma yapýyoruz
+        while (j >= 0 && arr[j][1] > deger)		//arrayin frekansÄ±nÄ±n bulunduÄŸu sÃ¼tun ile karÅŸÄ±laÅŸtÄ±rma yapÄ±yoruz
         {
             arr[j + 1][1] = arr[j][1];
             arr[j + 1][0] = arr[j][0];
@@ -140,7 +140,7 @@ struct node *insert(int arr[][2],int size)			//linkli liste yapisini olusturdugu
         curr->freq = arr[i][1];
         curr->left = NULL;
         curr->right = NULL;
-        curr->next = (struct node *)malloc(sizeof(struct node));	//her seferinde sonrasý icin yeni bir node acacak... taa ki en son duguma gelene kadar
+        curr->next = (struct node *)malloc(sizeof(struct node));	//her seferinde sonrasÄ± icin yeni bir node acacak... taa ki en son duguma gelene kadar
         if (i == size-1)	//size-1 'de son dugume gelmis oldu ve next'i NULL olmali
             curr->next = NULL;
 
@@ -189,13 +189,13 @@ struct node *huffman(struct node *head,int size)	//huffman agacini olusturdugumu
             }
             else if (iter->next == NULL && toplam->freq >= iter->freq && toplam != iter)
             {
-                toplam->next = iter->next;		//next'i null iken toplamýn freqi iterin freqinden buyukse yine toplami o araya sokacagiz yani toplamin nexti null olacak
+                toplam->next = iter->next;		//next'i null iken toplamÄ±n freqi iterin freqinden buyukse yine toplami o araya sokacagiz yani toplamin nexti null olacak
                 iter->next = toplam;			//iter'in nexti de null yerine toplami gosterecek.
             }
             iter = iter->next;
         }
         if (i != size - 1)
-            head = head->next->next;	//cunku ilk 2 en kucuk degeri yok etmek istedigimiz için head i 2 deger sonrasindan baslatiyoruz.
+            head = head->next->next;	//cunku ilk 2 en kucuk degeri yok etmek istedigimiz iÃ§in head i 2 deger sonrasindan baslatiyoruz.
     }
     return head;
 }
@@ -205,15 +205,15 @@ struct node *huffman(struct node *head,int size)	//huffman agacini olusturdugumu
 struct node *topla(struct node *head)	//huffman agacini olustururken en kucuk dugumleri toplamak icin kullandigimiz fonksiyon
 {
     struct node *toplam = (struct node *)malloc(sizeof(struct node));
-    toplam->freq = head->freq + head->next->freq; //degerler siralanmis oldugu icin bastaki iki deðer en kucuk iki deðerdir. yani head ve head->next in freqleri 
-    toplam->harf = '\0';		//topladýðýmýzda harf degeri bos oluyor.
+    toplam->freq = head->freq + head->next->freq; //degerler siralanmis oldugu icin bastaki iki deÄŸer en kucuk iki deÄŸerdir. yani head ve head->next in freqleri 
+    toplam->harf = '\0';		//topladÄ±ÄŸÄ±mÄ±zda harf degeri bos oluyor.
     toplam->left = head;
     toplam->right = head->next;
-    return toplam;		//toplamýn next'ini huffman fonksiyonunda ayarlayacaðýz.
+    return toplam;		//toplamÄ±n next'ini huffman fonksiyonunda ayarlayacaÄŸÄ±z.
 }
 
 
-void print_agac(struct node* root) 	//agacýn yuksekligi kadar donup o seviyedekileri yazdiran fonksiyon
+void print_agac(struct node* root) 	//agacÄ±n yuksekligi kadar donup o seviyedekileri yazdiran fonksiyon
 { 
     int h = tree_height(root); 
     int i; 
@@ -234,22 +234,22 @@ int tree_height(struct node *node)
         int leftheight = tree_height(node->left); 	//null'a ulasana kadar gidecek ve null iken yukseklik 0 olacak.
         int rightheight = tree_height(node->right);	//null'a ulasana kadar gidecek ve null iken yukseklik 0 olacak.
         if (leftheight > rightheight)
-            return (leftheight + 1);	//buyuk olanin uzunlugu agacýn uzunlugu kabul edilecek
+            return (leftheight + 1);	//buyuk olanin uzunlugu agacÄ±n uzunlugu kabul edilecek
         else
-            return (rightheight + 1);	//birbirine esitse right ya da left farketmez 1 artýrýyoruz. l<r ise left'i 1 arttýrýyoruz ki buyugun uzunluguna esit olsun.
+            return (rightheight + 1);	//birbirine esitse right ya da left farketmez 1 artÄ±rÄ±yoruz. l<r ise left'i 1 arttÄ±rÄ±yoruz ki buyugun uzunluguna esit olsun.
     }
 }
 
 
-void printLevel(struct node* root, int level) //aðacýn ilgili seviyesini yazdýran fonksiyon
+void printLevel(struct node* root, int level) //aÄŸacÄ±n ilgili seviyesini yazdÄ±ran fonksiyon
 { 
     if (root == NULL && level == 1) //son elemansa ve son levelsa sadece bir null(bosluk) yazacak
         printf("   ");
-    else if (root == NULL && level != 1) //root nullsa ama en alt seviyeye gelmemisse null'ýn ayaklarýný ekrana yazar (2 tane null olarak)
+    else if (root == NULL && level != 1) //root nullsa ama en alt seviyeye gelmemisse null'Ä±n ayaklarÄ±nÄ± ekrana yazar (2 tane null olarak)
         printf("      ");
     else if (level == 1) //level 1se ve root null degilse o seviyenin frekans ve harf degerlerini ekrana yazar
         printf("%d%c  ", root->freq, root->harf); 
-    else if (level > 1) //en alt seviyede degilse recursive þekilde ilerler...
+    else if (level > 1) //en alt seviyede degilse recursive ÅŸekilde ilerler...
     { 
         printLevel(root->left, level-1); 
         printLevel(root->right, level-1); 
