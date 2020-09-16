@@ -1,0 +1,2 @@
+# ytuveriyapilari
+Veri Yapıları Ödevler
