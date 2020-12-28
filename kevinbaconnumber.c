@@ -35,13 +35,13 @@ void print(char* , char* , struct movie* , int );
 
 struct movienode* mq_enqueue(struct movie* x){	//moviequeue_enqueue parametre olarak aldigi bir movie yi queueya ekler ve movienode tipinde sonuc dondurur.
 	struct movienode* newNode= (struct movienode*)malloc(sizeof(struct movienode));	//yer actik
-	newNode->data=x;	//filmi newNode un datasýna ekledik
+	newNode->data=x;	//filmi newNode un datasÄ±na ekledik
 	newNode->next=NULL;		//newnode un nexti NULL olacak
 	if(firstm==NULL){	//ilk eleman icin  (queuenin first u null yani eklenen,ilk eleman ise)
 		firstm=newNode;	//firstm ve lastm newnode a esit olacak
 		lastm=newNode;
 	}else{	//queuenin devami icin yani ilk eleman degilse
-		lastm->next=newNode;	//lastm ve lastm in nextini newNode yaptýk
+		lastm->next=newNode;	//lastm ve lastm in nextini newNode yaptÄ±k
 		lastm=newNode;
 	}
 	return firstm;	//firstm i dondurmeliyiz queue daki ilk eleman FIFO
@@ -49,13 +49,13 @@ struct movienode* mq_enqueue(struct movie* x){	//moviequeue_enqueue parametre ol
 
 struct actornode* aq_enqueue(struct actor* x){	//actorqueue_enqueue parametre olarak aldigi bir aktoru queueya ekler ve actornode tipinde sonuc dondurur.
 	struct actornode* newNode= (struct actornode*)malloc(sizeof(struct actornode));	//yer actik
-	newNode->data=x;	//filmi newNode un datasýna ekledik
+	newNode->data=x;	//filmi newNode un datasÄ±na ekledik
 	newNode->next=NULL;		//newnode un nexti NULL olacak
 	if(firsta==NULL){	//ilk eleman icin  (queuenin first u null yani eklenen,ilk eleman ise)
 		firsta=newNode;	//firstm ve lastm newnode a esit olacak
 		lasta=newNode;
 	}else{	//queuenin devami icin yani ilk eleman degilse
-		lasta->next=newNode;	//lastm ve lastm in nextini newNode yaptýk
+		lasta->next=newNode;	//lastm ve lastm in nextini newNode yaptÄ±k
 		lasta=newNode;
 	}
 	return firsta;	//firsta yi dondurmeliyiz queue daki ilk eleman FIFO
@@ -93,15 +93,15 @@ struct movienode* mq_dequeue(){	//moviequeue_dequeue bir movieyi queuedan cikari
 }
 
 struct movie* breadthfirst(struct movie* filmdizisi,int sayac){ // fonksiyon filmdizisi ve bu filmdizisinin boyutunu alarak bfs enine arama algoritmasi uygular.
-	int i,j,isEmpty,h=0,bacon,count; //i film için, j aktör için, isempty bos/dolu kontrolu icin, h da hesaplanmisfilmdizisinin iterasyonu için
-									//bacon, actorqueuedeki kbnumlarýný kontrol etmek, count ise kac tane o aktordenoldugunu saymak icin
-	struct movie* hesaplanmisfilmdizisi=(struct movie*)malloc(sayac*sizeof(struct movie));//kb numaralarine gore siraladigimiz queue elemanlarýný kaybetmemek icin
+	int i,j,isEmpty,h=0,bacon,count; //i film iÃ§in, j aktÃ¶r iÃ§in, isempty bos/dolu kontrolu icin, h da hesaplanmisfilmdizisinin iterasyonu iÃ§in
+									//bacon, actorqueuedeki kbnumlarÄ±nÄ± kontrol etmek, count ise kac tane o aktordenoldugunu saymak icin
+	struct movie* hesaplanmisfilmdizisi=(struct movie*)malloc(sayac*sizeof(struct movie));//kb numaralarine gore siraladigimiz queue elemanlarÄ±nÄ± kaybetmemek icin
 	struct movienode* iter;	//iterasyon icin
 	struct actornode* actorqueue=(struct actornode*)malloc(sizeof(struct actornode));
 	actorqueue->data=(struct actor*)malloc(sizeof(struct actor));
 	strcpy(actorqueue->data->firstname,"Kevin");
 	strcpy(actorqueue->data->lastname,"Bacon");
-	actorqueue->data->kbnum=0;	//kevin baconýn kevin bacon sayisi 0
+	actorqueue->data->kbnum=0;	//kevin baconÄ±n kevin bacon sayisi 0
 	firsta=actorqueue;
 	lasta=actorqueue;
 	struct movienode* moviequeue=(struct movienode*)malloc(sizeof(struct movienode));
@@ -115,7 +115,7 @@ struct movie* breadthfirst(struct movie* filmdizisi,int sayac){ // fonksiyon fil
 				j=0;
 				while(filmdizisi[i].actor[j].firstname[0]!=0){	//filmdizisinin actoru oldugu surece(actorun adinin ilk harfine bakiyoruz)
 					if(strcmp(actorqueue->data->firstname,filmdizisi[i].actor[j].firstname)==0 && 	
-						strcmp(actorqueue->data->lastname,filmdizisi[i].actor[j].lastname)==0){ //filmdizisindeki aktorun adý/soyadi queuedaki ada/soyada esit mi
+						strcmp(actorqueue->data->lastname,filmdizisi[i].actor[j].lastname)==0){ //filmdizisindeki aktorun adÄ±/soyadi queuedaki ada/soyada esit mi
 							filmdizisi[i].kbnum=actorqueue->data->kbnum+1;	//kevin bacon numarasini 1 artiriyoruz(0+1)
 							moviequeue = mq_enqueue(&filmdizisi[i]);	//oyuncunun oynadigi diziyi queue ya ekliyoruz.
 							//printf("\n%s filmi eklendi. Bacon : %d\n", filmdizisi[i].name, filmdizisi[i].kbnum);
@@ -131,8 +131,8 @@ struct movie* breadthfirst(struct movie* filmdizisi,int sayac){ // fonksiyon fil
 			j=0;
 			while(iter->data->actor[j].firstname[0]!=0){
 				if(strcmp(iter->data->actor[j].firstname,actorqueue->data->firstname)!=0 || 
-					strcmp(iter->data->actor[j].lastname,actorqueue->data->lastname)!=0){//moviequeuedaki aktorun adý/soyadi queuedaki ada/soyada esit mi
-						iter->data->actor[j].kbnum=iter->data->kbnum;	//queuedeki aktorun kbnumarasý moviequeuedaki filmin kbsine esit
+					strcmp(iter->data->actor[j].lastname,actorqueue->data->lastname)!=0){//moviequeuedaki aktorun adÄ±/soyadi queuedaki ada/soyada esit mi
+						iter->data->actor[j].kbnum=iter->data->kbnum;	//queuedeki aktorun kbnumarasÄ± moviequeuedaki filmin kbsine esit
 						actorqueue = aq_enqueue(&iter->data->actor[j]);//moviequeuedaki filmin aktorunu actorqueueya ekliyoruz
 						//printf("%s %s aktoru eklendi. Bacon : %d\n", iter->data->actor[j].firstname, iter->data->actor[j].lastname,
 						//												iter->data->actor[j].kbnum);
@@ -148,10 +148,10 @@ struct movie* breadthfirst(struct movie* filmdizisi,int sayac){ // fonksiyon fil
 		//printf("%s %s aktoru cikarildi\n", actorqueue->data->firstname, actorqueue->data->lastname);
 		
 		if(bacon!=actorqueue->data->kbnum){	//yukarida tum actorlerin kbnumlarini bulduk. bacon diye bir degiskenle kontrol edecegiz.
-		//esit degilse count ý artýracagiz. yani kbnum'ý o kadar olandan count tane var demek.kbnum ý 2 olan film varsa 2 tane olacak count.
+		//esit degilse count Ä± artÄ±racagiz. yani kbnum'Ä± o kadar olandan count tane var demek.kbnum Ä± 2 olan film varsa 2 tane olacak count.
 			printf("Kevin Bacon sayisi %d olan oyuncu sayisi : %d\n", bacon, count);	
 			bacon++;	//bacon sayilari esitse 1 artirdik 
-			count=0;	//count 'ý her seferinde 0lýyoruz siradaki kbnumlý actore temiz bir sekilde gecmek icin.
+			count=0;	//count 'Ä± her seferinde 0lÄ±yoruz siradaki kbnumlÄ± actore temiz bir sekilde gecmek icin.
 		}
 		count++;
 		actorqueue=aq_dequeue();	//aktoru queuedan cikariyoruz
@@ -169,9 +169,9 @@ struct movie* breadthfirst(struct movie* filmdizisi,int sayac){ // fonksiyon fil
 	return hesaplanmisfilmdizisi;
 }
 
-void print(char* rootf, char* rootl, struct movie* filmdizisi, int sayac){	//adý verilen bir aktörün Kevin Bacon sayýsýný bulan ve baðlantýyý yazdirma
+void print(char* rootf, char* rootl, struct movie* filmdizisi, int sayac){	//adÄ± verilen bir aktÃ¶rÃ¼n Kevin Bacon sayÄ±sÄ±nÄ± bulan ve baÄŸlantÄ±yÄ± yazdirma
 																	//Kevin Bacon numarasi aranacak oyuncu adi/soyadi, filmdizisi ve filmdizisinin boyutunu paremetre alir
-	int i, j, k;	//i film için, j aktör için, k rootm in actor iterasyonu icin
+	int i, j, k;	//i film iÃ§in, j aktÃ¶r iÃ§in, k rootm in actor iterasyonu icin
 	struct movie* rootm = NULL;	//movie icin root
 	struct actor* roota = NULL;	//actor icin root
 	while(strcmp(rootf, "Kevin")!=0 || strcmp(rootl, "Bacon")!=0){	//root for firstname ve lastname kevin bacon a esit olmadikca
@@ -180,12 +180,12 @@ void print(char* rootf, char* rootl, struct movie* filmdizisi, int sayac){	//adý
 			j=0;
 			while(filmdizisi[i].actor[j].firstname[0]!=0 && rootm==NULL){
 				if(strcmp(rootf, filmdizisi[i].actor[j].firstname)==0 && strcmp(rootl, filmdizisi[i].actor[j].lastname)==0){
-					if(filmdizisi[i].kbnum==SONSUZ){	//kbnum ý sonsuz ise actorun adý soyadý ve yanina da sonsuz yazilsin.
+					if(filmdizisi[i].kbnum==SONSUZ){	//kbnum Ä± sonsuz ise actorun adÄ± soyadÄ± ve yanina da sonsuz yazilsin.
 						printf("%s %s (sonsuz)\n", filmdizisi[i].actor[j].firstname, filmdizisi[i].actor[j].lastname);
 						return;
 					}
 					rootm=&filmdizisi[i];	//sonsuz degilse filmdizisinin i. elemani movie rootuna atanir
-					printf("%s %s :\n", rootm->name, rootm->year);	//ve movie nin adý ve yýlý yazilir
+					printf("%s %s :\n", rootm->name, rootm->year);	//ve movie nin adÄ± ve yÄ±lÄ± yazilir
 				}
 				j++;
 			}
@@ -231,8 +231,8 @@ void print(char* rootf, char* rootl, struct movie* filmdizisi, int sayac){	//adý
 
 int main() {
 	struct movie* filmdizisi;
-	int i=0,j=0,k=0,sayac=0;//i yi film için, j yi aktör için ve k yý aktörün ad/soyadýnýn harfleri için,sayac'ý satýr yani film sayisini bulmak icin kullanýyoruz. 
-	char ch,file_name[25];	//ch text dosyasindaki karakterlerin iterasyonu icin, file_name ise kullanýcýdan alýnacak dosyanin adi
+	int i=0,j=0,k=0,sayac=0;//i yi film iÃ§in, j yi aktÃ¶r iÃ§in ve k yÄ± aktÃ¶rÃ¼n ad/soyadÄ±nÄ±n harfleri iÃ§in,sayac'Ä± satÄ±r yani film sayisini bulmak icin kullanÄ±yoruz. 
+	char ch,file_name[25];	//ch text dosyasindaki karakterlerin iterasyonu icin, file_name ise kullanÄ±cÄ±dan alÄ±nacak dosyanin adi
 	FILE *datafile;
 	printf("Name of the text file :");
     gets(file_name);
@@ -249,7 +249,7 @@ int main() {
 	fclose(datafile);
 	
 	filmdizisi=(struct movie*)malloc(sayac*sizeof(struct movie));	//film sayisi kadar yer actik
-	datafile = fopen(file_name, "r");	//Dosya okuma iþlevi
+	datafile = fopen(file_name, "r");	//Dosya okuma iÅŸlevi
     if (datafile == NULL)
     {
         printf("cannot open file...\n");
@@ -267,7 +267,7 @@ int main() {
 		filmdizisi[i].name[k]='\0';	//sonuna bir null ekliyoruz name stringinin.
 		//printf("%s\n",filmdizisi[i].name);
 		k=0;
-    	while(ch!='/'){	// slash a gelene kadari yýl
+    	while(ch!='/'){	// slash a gelene kadari yÄ±l
 //    		printf("%c", ch);
 			filmdizisi[i].year[k]=ch;
     		ch = fgetc(datafile);	//harf harf ilerletiyoruz.
@@ -288,14 +288,14 @@ int main() {
 			ch = fgetc(datafile);	//virgulu atlamak icin bir ileri
 			ch = fgetc(datafile);	//virgulden sonraki boslugu atlamak icin bir ileri
 			k=0;
-    		while(ch!='/' && ch!=10){	//satir sonu degilse ve slasha esit degilse aktorlerin devamý var 
+    		while(ch!='/' && ch!=10){	//satir sonu degilse ve slasha esit degilse aktorlerin devamÄ± var 
 //	    		printf("%c", ch);
 				filmdizisi[i].actor[j].firstname[k]=ch;
 	    		ch = fgetc(datafile);	//harf harf ilerletiyoruz.	
 	    		k++;
 			}
 			filmdizisi[i].actor[j].firstname[k]='\0';	//sonuna bir null ekliyoruz firstname stringinin.	
-    		if(ch=='/'){	// slash ý almak istemedigimizden
+    		if(ch=='/'){	// slash Ä± almak istemedigimizden
     			ch = fgetc(datafile);	//bir harf ilerletiyoruz.
 			}
 			
