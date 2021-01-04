@@ -31,7 +31,7 @@ int main(){
 	return 0;
 }
 
-int sameColumn(int **matrix,int x, int num,int n){	//matrisi, satirini, degeri ve matrisin boyutunu alıp o sutunda varsa 1 yoksa 0 dondurur
+int sameColumn(int **matrix,int x, int num,int n){	//matrisi, satirini, degeri ve matrisin boyutunu alÃ½p o sutunda varsa 1 yoksa 0 dondurur
 	int i;
 	for(i=0;i<n;i++){
 		if(matrix[x][i]==num){
@@ -41,7 +41,7 @@ int sameColumn(int **matrix,int x, int num,int n){	//matrisi, satirini, degeri v
 	return 0;	//yok
 }
 
-int sameRow(int **matrix,int y, int num,int n){	//matrisi, sutununu, degeri ve matrisin boyutunu alıp o satirda varsa 1 yoksa 0 dondurur
+int sameRow(int **matrix,int y, int num,int n){	//matrisi, sutununu, degeri ve matrisin boyutunu alÃ½p o satirda varsa 1 yoksa 0 dondurur
 	int i;
 	for(i=0;i<n;i++){
 		if(matrix[i][y]==num){
@@ -61,7 +61,7 @@ int backTracking(int **matrix,int *renkler,int x,int y, int n){	//backtracking a
 		x++;	//satir sonuna gelene kadar ilerle
 	}
 	for(i=0;i<n;i++){
-		if(sameRow(matrix,y,renkler[i],n)!=1&&sameColumn(matrix,x,renkler[i],n)!=1){	//aynı satir ve sutunda yok ise
+		if(sameRow(matrix,y,renkler[i],n)!=1&&sameColumn(matrix,x,renkler[i],n)!=1){	//aynÃ½ satir ve sutunda yok ise
 			matrix[x][y]=renkler[i];		//rengi matrise yaz
 			if(backTracking(matrix,renkler,x,y+1,n)==1){	//backtracking recursive (sutundan kontrol)
 				return 1;
