@@ -1,2 +1,2 @@
-# ytuveriyapilari
-Veri Yapıları Ödevler
+# YTÜ ödevler
+YTÜ Ödevler
