@@ -10,7 +10,6 @@ struct node
     struct node *next, *left, *right;
 };
 
-
 void insertionSort(int arr[][2], int);
 
 struct node *insert(int arr[][2],int);
