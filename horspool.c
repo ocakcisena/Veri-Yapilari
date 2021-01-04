@@ -45,7 +45,7 @@ char *replaceWord(char *s, char *oldW, char *newW, int adet,int option)
 	char* fake_s = (char *)malloc(strlen(s)+1);	//yeni bir array olusturduk
 	strcpy(fake_s,s);	//s dizimizi yeni arraya kopyaladik
 	strupr(fake_s);	//bu dizideki harfleri buyuk harf yapiyoruz
-	char* fakeold = (char *)malloc(strlen(oldW)+1);		//find ý yazacagimiz bir dizi
+	char* fakeold = (char *)malloc(strlen(oldW)+1);		//find Ã½ yazacagimiz bir dizi
 	strcpy(fakeold,oldW);
 	strupr(fakeold);
     char *result; 
@@ -64,8 +64,8 @@ char *replaceWord(char *s, char *oldW, char *newW, int adet,int option)
 	    {	
 	        if (strstr(fake_s, fakeold) == fake_s) //diziyle kelimeyi karsilastiriyoruz
 	        { 
-	            strcpy(&result[i], newW); //yeni kelimeyi diziye atýyoruz.
-	            strcpy(&fakeresult[j], newW);	//yeni kelimeyi fakeresult dizisine atýyoruz.
+	            strcpy(&result[i], newW); //yeni kelimeyi diziye atÃ½yoruz.
+	            strcpy(&fakeresult[j], newW);	//yeni kelimeyi fakeresult dizisine atÃ½yoruz.
 	            i += newlen; //i yi yeni kelimenin uzunlugu kadar ileri tasiyoruz
 	            s += oldlen; //s i de eski kelime kadar ileri tasiyoruz
 	            j += newlen; //j yi yeni kelime kadar ileri
@@ -82,7 +82,7 @@ char *replaceWord(char *s, char *oldW, char *newW, int adet,int option)
 	    {	
 	        if (strstr(s, oldW) == s) //diziyle aranan kelimeyi karsilastiriyoruz.
 	        { 
-	            strcpy(&result[i], newW); //yeni kelimeyi diziye atýyoruz.
+	            strcpy(&result[i], newW); //yeni kelimeyi diziye atÃ½yoruz.
 	            i += newlen; //iterasyonu yeni kelimenin uzunlugu kadar ileri tasiyoruz
 	            s += oldlen; //s i de eski kelime kadar ileri tasiyoruz
 	        }
@@ -102,10 +102,10 @@ int* shift_table(char array[],char find[])
     table = (int *)malloc(size * sizeof(int));
     for (i = 0; i < size; i++)
     {
-        table[i] = m;	//once her degere aranan kelimenin uzunlugunu atadýk.
+        table[i] = m;	//once her degere aranan kelimenin uzunlugunu atadÃ½k.
     }
-    //asagida da textte bulunan karakterlere (m-1-indis) hesaplamasini uyguladýk
-    //buyuk harf ve kucuk harf icin ayni degerleri almasi onemli, yoksa not case sensitive icin sýkýntý olusur
+    //asagida da textte bulunan karakterlere (m-1-indis) hesaplamasini uyguladÃ½k
+    //buyuk harf ve kucuk harf icin ayni degerleri almasi onemli, yoksa not case sensitive icin sÃ½kÃ½ntÃ½ olusur
     for (j = 0; j < m - 1; j++)
     {
         table[tolower(find[j])] = m - 1 - j;
@@ -146,7 +146,7 @@ int main(int argc, char **argv)
 
 	printf("Name of the text file :");
     gets(file_name);
-    datafile = fopen(file_name, "r");//Dosya okuma iþlevi
+    datafile = fopen(file_name, "r");//Dosya okuma iÃ¾levi
     if (datafile == NULL)
     {
         printf("cannot open file...\n");
